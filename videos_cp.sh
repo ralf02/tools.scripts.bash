@@ -1,9 +1,11 @@
 #!/bin/bash
 
 # array=("6. CROSSOVER SELECTIVO VIDEOS 2022 divx" "5. Hector VIDEOS CROSSOVER divx" "4. EL REY DE LOS CROSSOVER 2024 VIDEOS" "3. CROSSOVER VIEJO VIDEOS")
-array=("7. CROSSOVER IMPACTO 2025")
+# array=("7. CROSSOVER IMPACTO 2025")
+array=("tmp")
 
-aux=802
+#aux=802
+aux=1100
 
 for element in "${array[@]}"
 do
