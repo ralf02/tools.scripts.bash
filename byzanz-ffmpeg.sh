@@ -8,7 +8,7 @@ RESOLUTION=$(xrandr | grep '*' | head -n1 | awk '{print $1}')
 WIDTH=$(echo $RESOLUTION | cut -d'x' -f1)
 HEIGHT=$(echo $RESOLUTION | cut -d'x' -f2)
 
-OUTPUT="$HOME/Videos/byzanz_ffmpeg_$(date +%Y%m%d_%H%M%S).webp"
+OUTPUT="$HOME/Videos/.byzanz_ffmpeg_$(date +%Y%m%d_%H%M%S).webp"
 
 ffmpeg \
 -f x11grab \
