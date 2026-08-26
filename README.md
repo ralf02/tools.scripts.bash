@@ -1,31 +1,56 @@
-# Conversión y Optimización de Videos para Reproductores Compatibles con DivX | Utilizatarios en bash
+# Mi Colección personal de Scripts
 
-Este proyecto tiene scripts para el análisis, conversión y optimización de archivos de video (`.mp4`) a un formato compatible con radios que leen archivos `.divx`, como el BV9967B, utilizando herramientas de línea de comandos en Linux.
+Mi Colección es un conjunto de herramientas escritas en Bash para automatizar tareas comunes de conversión de medios, captura de pantalla y mantenimiento del sistema en entornos Linux.
 
-## Objetivos
+## Requisitos Previos
 
-- Convertir archivos `.mp4` a `.divx` manteniendo la compatibilidad con reproductores específicos.
-- Preservar nombres de archivos correctamente durante el copiado y renombramiento.
-- Automatizar el proceso de copiado y renombramiento secuencial de archivos `.mp3`.
-- Establecer fechas de creación/modificación en archivos.
-- Optimizar el peso de los archivos resultantes sin perder compatibilidad.
-- Listar y ordenar archivos por nombre o número desde terminal.
-- Reinicio controlado de wowza
-- Eliminar versiones antiguas de paquetes Snap que están deshabilitadas y ya no están en uso, liberando espacio en el sistema.
+Para asegurar el correcto funcionamiento de todos los scripts, es necesario contar con las siguientes herramientas instaladas en el sistema:
 
-## Herramientas utilizadas
+- **Bash**: Intérprete de comandos estándar.
+- **ffmpeg**: Para el procesamiento y conversión de audio y video.
+- **byzanz**: Para la creación de GIFs animados de la pantalla.
+- **Herramientas estándar de Linux**: `coreutils` (ls, cp, rm, etc.).
 
-- `ffmpeg`: conversión de video.
-- `bash`: scripting automatizado.
-- `tree`, `ls`, `sort`: organización y visualización de archivos.
-- `touch`, `debugfs`: manipulación de fechas en archivos en ext4.
-- `find`, `basename`, `dirname`: búsqueda y manipulación de rutas.
+## Descripción de los Scripts
 
-## Recomendaciones
+Los scripts están organizados por categorías según su funcionalidad:
 
-- Usar -q:v con valores entre 5 y 12 para balancear peso/calidad.
-- Validar resolución máxima soportada por el reproductor (se recomienda 640x360).
-- Evitar extensiones `.avi` si el radio solo reconoce `.divx`.
-- Para radios que no permiten lectura de `.txt` o búsqueda, convertir contenido a audio o formatos visuales compatibles.
-- Eso de cron job para el script `wowza-restart.sh`
-- El script `clean_snap.sh` elimina las versiones antiguas de paquetes Snap que están deshabilitadas y ya no están en uso
+### Conversión y Gestión de Medios
+*   `videos_ffmpeg.sh`: Convierte archivos `.mp4` a `.divx` (AVI), optimizado específicamente para compatibilidad con hardware antiguo (como radios de vehiculos como el BOSS BV9967B).
+*   `videos_cp.sh`: Automatiza la copia y organización de archivos de video optimizados.
+*   `music_cp.sh`: Gestiona la copia y organización de bibliotecas de música.
+*   `short_mp3.sh`: Permite recortar segmentos específicos de archivos MP3.
+
+### Captura de Pantalla
+*   `byzanz.sh`: Graba una sección de la pantalla y genera un archivo GIF utilizando `byzanz-record`.
+*   `byzanz-ffmpeg.sh`: Captura la pantalla y exporta a formato WebP utilizando la potencia de `ffmpeg` y `x11grab`.
+
+### Mantenimiento del Sistema
+*   `clean_snap.sh`: Libera espacio en disco eliminando versiones antiguas y obsoletas de los paquetes instalados vía Snap.
+*   `wowza-restart.sh`: Reinicia el servidor de streaming Wowza de manera rápida y segura.
+*   `StopSimpleScreenRecorder.sh`: Finaliza el proceso de SimpleScreenRecorder de forma controlada.
+
+## Guía de Uso
+
+Para utilizar cualquiera de los scripts, siga estos pasos:
+
+1.  **Clonar el repositorio**:
+    ```bash
+    git clone <url-del-repositorio>
+    cd <nombre-del-directorio>
+    ```
+
+2.  **Asignar permisos de ejecución**:
+    Antes de ejecutar un script por primera vez, debe otorgarle permisos de ejecución al archivo:
+    ```bash
+    chmod +x nombre_del_script.sh
+    ```
+
+3.  **Ejecutar el script**:
+    ```bash
+    ./nombre_del_script.sh [argumentos]
+    ```
+
+## Licencia
+
+Este proyecto está distribuido bajo la licencia MIT. Consulte el archivo `LICENSE` para más detalles.
